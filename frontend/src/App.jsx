@@ -20,7 +20,8 @@ import Header from "./markup/components/Header/Header.jsx";
 import Footer from "./markup/components/Footer/Footer.jsx";
 //Import the PrivateAuthRoute component
 import PrivateAuthRoute from "./markup/components/Auth/PrivateAuthRoute.jsx";
-
+// Import the AddCustomer component
+import AddCustomer from "./markup/pages/admin/AddCustomer.jsx";
 //Importing the css files
 import "./assets/template_assets/css/bootstrap.css";
 import "./assets/template_assets/css/style.css";
@@ -57,8 +58,19 @@ function App() {
             </PrivateAuthRoute>
           }
         />
+
+        {/* Add the Add Customer Route */}
+        <Route
+          path="/admin/add-customer"
+          element={
+            <PrivateAuthRoute roles={[3]}>
+              <AddCustomer />
+            </PrivateAuthRoute>
+          }
+        />
         {/* // Add the Employees Route  */}
-        <Route path="/admin/employees" element={<Employees />} /> {/*For this route, we alternatively handled both the authentication and authorization inside the Employees page's jsx using conditional rendering. So, we didn't need to wrap Employees route with PrivateAuthRoute. This is the second way of handling authentication and authorization. The first way is using PrivateAuthRoute as shown in Orders and Customers routes above.*/}
+        <Route path="/admin/employees" element={<Employees />} />{" "}
+        {/*For this route, we alternatively handled both the authentication and authorization inside the Employees page's jsx using conditional rendering. So, we didn't need to wrap Employees route with PrivateAuthRoute. This is the second way of handling authentication and authorization. The first way is using PrivateAuthRoute as shown in Orders and Customers routes above.*/}
         <Route
           path="/admin/add-employee"
           element={
@@ -75,7 +87,6 @@ function App() {
             - Manager: 2 
             - Employee: 1 
         */}
-
         {/* Add more routes as needed */}
       </Routes>
       {/* Including the Footer component */}
