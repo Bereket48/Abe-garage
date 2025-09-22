@@ -6,7 +6,7 @@ import LoginForm from "../../components/LoginForm/LoginForm.jsx";
 // Import the admin menu component
 import AdminMenu from "../../components/Admin/AdminMenu/AdminMenu.jsx";
 // Import the EmployeesList component
-// import EmployeesList from "../../components/Admin/EmployeesList/EmployeesList.jsx";
+import EmployeesList from "../../components/Admin/EmployeesList/EmployeesList.jsx";
 function Employees() {
   // Destructure the auth hook
   const { isLogged, isAdmin } = useAuth();
@@ -22,9 +22,9 @@ function Employees() {
               <div className="col-md-3 admin-left-side">
                 <AdminMenu />
               </div>
-              {/* <div className="col-md-9 admin-right-side">
+              <div className="col-md-9 admin-right-side">
                 <EmployeesList />
-              </div> */}
+              </div>
             </div>
           </div>
         </div>
