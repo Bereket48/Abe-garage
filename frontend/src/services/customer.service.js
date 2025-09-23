@@ -14,7 +14,7 @@ const createCustomer = async (formData, loggedInEmployeeToken) => {
     body: JSON.stringify(formData),
   };
   // Sending a POST request to the backend to create a new employee
-  const response = await fetch(`${backendUrl}/api/employee`, requestOptions);
+  const response = await fetch(`${backendUrl}/api/customer`, requestOptions);
   return response;
 };
 
@@ -28,12 +28,12 @@ const getAllCustomers = async (token) => {
       "x-access-token": token,
     },
   };
-  const response = await fetch(`${backendUrl}/api/employees`, requestOptions);
+  const response = await fetch(`${backendUrl}/api/customers`, requestOptions);
   return response;
 };
 
 //Exporting all the functions
-export const employeeService = {
+export const customerService = {
   createCustomer,
   getAllCustomers,
 };

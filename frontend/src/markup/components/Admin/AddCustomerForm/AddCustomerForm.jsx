@@ -8,9 +8,7 @@ function AddCustomerForm(props) {
   const [customer_email, setEmail] = useState("");
   const [customer_first_name, setFirstName] = useState("");
   const [customer_last_name, setLastName] = useState("");
-  const [customer_phone, setPhoneNumber] = useState("");
-  const [active_employee, setActive_employee] = useState(1);
-  const [company_role_id, setCompany_role_id] = useState(1);
+  const [customer_phone_number, setPhoneNumber] = useState("");
   // Errors
   const [emailError, setEmailError] = useState("");
   const [firstNameRequired, setFirstNameRequired] = useState("");
@@ -61,12 +59,9 @@ function AddCustomerForm(props) {
       customer_email,
       customer_first_name,
       customer_last_name,
-      customer_phone,
-      active_employee,
-      company_role_id,
+      customer_phone_number,
     };
     // Pass the form data to the service
-    // const newCustomer = customerService.createEmployee(formData, loggedInEmployeeToken);
     const newCustomer = customerService.createCustomer(
       formData,
       loggedInEmployeeToken
@@ -125,7 +120,7 @@ function AddCustomerForm(props) {
                         name="customer_email"
                         value={customer_email}
                         onChange={(event) => setEmail(event.target.value)}
-                        placeholder="Employee email"
+                        placeholder="Customer email"
                       />
                       {emailError && (
                         <div className="validation-error" role="alert">
@@ -139,7 +134,7 @@ function AddCustomerForm(props) {
                         name="customer_first_name"
                         value={customer_first_name}
                         onChange={(event) => setFirstName(event.target.value)}
-                        placeholder="Employee first name"
+                        placeholder="Customer first name"
                       />
                       {firstNameRequired && (
                         <div className="validation-error" role="alert">
@@ -154,7 +149,7 @@ function AddCustomerForm(props) {
                         name="customer_last_name"
                         value={customer_last_name}
                         onChange={(event) => setLastName(event.target.value)}
-                        placeholder="Employee last name"
+                        placeholder="Customer last name"
                         required
                       />
                     </div>
@@ -163,9 +158,9 @@ function AddCustomerForm(props) {
                       <input
                         type="text"
                         name="customer_phone"
-                        value={customer_phone}
+                        value={customer_phone_number}
                         onChange={(event) => setPhoneNumber(event.target.value)}
-                        placeholder="Employee phone (555-555-5555)"
+                        placeholder="Customer phone (555-555-5555)"
                         required
                       />
                     </div>
